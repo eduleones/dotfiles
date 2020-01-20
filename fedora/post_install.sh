@@ -17,22 +17,21 @@ sudo dnf install tlp tlp-rdw -y
 sudo systemctl enable tlp
 
 # Fonts
-sudo dnf install powerline powerline-fonts -y
-sudo dnf install levien-inconsolata-fonts lato-fonts google-roboto-fonts -y
+sudo dnf install powerline powerline-fonts google-roboto-fonts -y
 sudo fc-cache -v
 
 # Compressing Files
 sudo dnf install unace unrar p7zip p7zip-plugins unzip -y
 
-# Gnome tweak, themes and extensions
-sudo dnf install gnome-tweak-tool -y
-sudo dnf install arc-theme -y
-sudo dnf install gnome-shell-extension-alternate-tab \
-gnome-shell-extension-dash-to-dock \
-gnome-shell-extension-topicons-plus -y
+# # Gnome tweak, themes and extensions
+# sudo dnf install gnome-tweak-tool -y
+# sudo dnf install arc-theme -y
+# sudo dnf install gnome-shell-extension-alternate-tab \
+# gnome-shell-extension-dash-to-dock \
+# gnome-shell-extension-topicons-plus -y
 
 # Multimidia
-sudo dnf install vlc transmission -y
+sudo dnf install vlc -y
 sudo dnf install \
 gstreamer-plugins-base \
 gstreamer1-plugins-base \
@@ -42,6 +41,9 @@ gstreamer1-plugins-ugly \
 gstreamer1-plugins-good \
 gstreamer1-plugins-good-extras \
 gstreamer1-plugins-bad-freeworld \
+gstreamer-plugins-bad-nonfree
+gstreamer1-libav
+gstreamer1-plugins-bad-nonfree \
 ffmpeg \
 gstreamer-ffmpeg -y
 
