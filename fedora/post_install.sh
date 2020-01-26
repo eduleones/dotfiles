@@ -5,8 +5,8 @@
 sudo dnf update -y
 
 # Enable RPM Fusion
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 # Dependencies
 sudo dnf install curl wget newt xterm -y
@@ -23,12 +23,14 @@ sudo fc-cache -v
 # Compressing Files
 sudo dnf install unace unrar p7zip p7zip-plugins unzip -y
 
+# Terminal
+sudo dnf -y install terminator screenfetch sl
+
 # # Gnome tweak, themes and extensions
-# sudo dnf install gnome-tweak-tool -y
-# sudo dnf install arc-theme -y
-# sudo dnf install gnome-shell-extension-alternate-tab \
-# gnome-shell-extension-dash-to-dock \
-# gnome-shell-extension-topicons-plus -y
+sudo dnf install gnome-tweak-tool -y
+sudo dnf install arc-theme -y
+sudo dnf install gnome-shell-extension-dash-to-dock \
+gnome-shell-extension-topicons-plus -y
 
 # Multimidia
 sudo dnf install vlc -y
@@ -87,9 +89,7 @@ flatpak install flathub org.gimp.GIMP -y
 flatpak install flathub com.bitwarden.desktop -y
 
 # VSCode
-cd ~/Downloads
-wget "https://go.microsoft.com/fwlink/?LinkID=760867" -O vscode.rpm
-sudo dnf localinstall vscode.rpm
+cd ~/Downloads && wget "https://go.microsoft.com/fwlink/?LinkID=760867" -O vscode.rpm && sudo dnf localinstall vscode.rpm -y
 
 # # Nvidia (without Bumblebee) - Wayland (intel) | Xorg (nvidia)
 # sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-nvidia.repo
