@@ -2,58 +2,55 @@
 # Version: Fedora 31
 
 # Update System
-sudo dnf update -y
+sudo dnf -y update
 
 # Enable RPM Fusion
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Dependencies
-sudo dnf install curl wget newt xterm -y
+sudo dnf -y install curl wget newt xterm
 sudo dnf -y groupinstall "Development Tools"
 
 # Reyce Battery Use
-sudo dnf install tlp tlp-rdw -y
+sudo dnf -y install tlp tlp-rdw
 sudo systemctl enable tlp
 
 # Fonts
-sudo dnf install powerline powerline-fonts google-roboto-fonts -y
+sudo dnf -y install powerline powerline-fonts google-roboto-fonts
 sudo fc-cache -v
 
 # Compressing Files
-sudo dnf install unace unrar p7zip p7zip-plugins unzip -y
+sudo dnf -y install unace unrar p7zip p7zip-plugins unzip
 
 # Terminal
 sudo dnf -y install terminator screenfetch sl
 
-# # Gnome tweak, themes and extensions
-sudo dnf install gnome-tweak-tool -y
-sudo dnf install arc-theme -y
-sudo dnf install gnome-shell-extension-dash-to-dock \
-gnome-shell-extension-topicons-plus -y
+# Gnome tweak, themes and extensions
+sudo dnf -y install gnome-tweak-tool
+sudo dnf -y install arc-theme
+sudo dnf -y install gnome-shell-extension-dash-to-dock \
+gnome-shell-extension-appindicator \
+gnome-shell-extension-topicons-plus
 
 # Multimidia
-sudo dnf install vlc -y
-sudo dnf install \
+sudo dnf -y install vlc
+sudo dnf -y install \
 gstreamer-plugins-base \
 gstreamer1-plugins-base \
-gstreamer-plugins-bad \
-gstreamer-plugins-ugly \
 gstreamer1-plugins-ugly \
 gstreamer1-plugins-good \
 gstreamer1-plugins-good-extras \
 gstreamer1-plugins-bad-freeworld \
-gstreamer-plugins-bad-nonfree
-gstreamer1-libav
-gstreamer1-plugins-bad-nonfree \
+gstreamer1-libav \
 ffmpeg \
-gstreamer-ffmpeg -y
+gstreamer-ffmpeg
 
 # Utils
-sudo dnf install nano git flatpak htop copyq -y
-
-# Flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo dnf -y install nano git flatpak htop copyq
+ 
+# Flatpak Repo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y
 
 # Spotify
 flatpak install flathub com.spotify.Client -y
@@ -89,7 +86,7 @@ flatpak install flathub org.gimp.GIMP -y
 flatpak install flathub com.bitwarden.desktop -y
 
 # VSCode
-cd ~/Downloads && wget "https://go.microsoft.com/fwlink/?LinkID=760867" -O vscode.rpm && sudo dnf localinstall vscode.rpm -y
+cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760867" -O vscode.rpm && sudo dnf localinstall vscode.rpm -y
 
 # # Nvidia (without Bumblebee) - Wayland (intel) | Xorg (nvidia)
 # sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-nvidia.repo
