@@ -10,7 +10,7 @@ sudo apt -y update && sudo apt -y upgrade
 # Base
 sudo apt -y install nano wget make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git intel-microcode
 
 # Ufw (Firewall)
 sudo apt -y install ufw && sudo ufw enable
@@ -25,7 +25,7 @@ sudo apt -y install fonts-powerline fonts-roboto fonts-ubuntu
 
 # Utils
 sudo apt -y install terminator arc arj cabextract lhasa p7zip p7zip-full p7zip-rar rar unrar unace unzip xz-utils zip \
-meld htop iotop bash-completion
+meld htop iotop bash-completion screenfetch
 
 # Google Chrome
 cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb && sudo apt -y install -f
