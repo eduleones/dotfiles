@@ -52,3 +52,9 @@ sudo usermod -aG docker ${USER}
 # i3
 sudo apt -y install i3 i3blocks i3lock feh
 
+# Pyenv
+curl https://pyenv.run | bash
+echo '# Pyenv config' >> ~/.bashrc
+echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
