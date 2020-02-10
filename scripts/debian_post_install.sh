@@ -25,7 +25,11 @@ sudo apt -y install fonts-powerline fonts-roboto fonts-ubuntu
 
 # Utils
 sudo apt -y install terminator arc arj cabextract lhasa p7zip p7zip-full p7zip-rar rar unrar unace unzip xz-utils zip \
-meld htop iotop bash-completion screenfetch
+meld htop iotop bash-completion screenfetch flameshot vim
+
+# Gnome
+sudo apt -y install gnome-shell-extension-caffeine gnome-shell-extension-dashtodock gnome-shell-extension-top-icons-plus
+sudo apt -y install moka-icon-theme
 
 # Google Chrome
 cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb && sudo apt -y install -f
