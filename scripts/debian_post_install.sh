@@ -62,3 +62,7 @@ echo '# Pyenv config' >> ~/.bashrc
 echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+# Zsh (Oh My Zsh)
+sudo apt -y install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
