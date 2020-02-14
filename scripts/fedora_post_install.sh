@@ -48,45 +48,50 @@ gstreamer-ffmpeg
 
 # Utils
 sudo dnf -y install nano git flatpak htop copyq
- 
-# Flatpak Repo
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y
-
-# Spotify
-flatpak install flathub com.spotify.Client -y
-
-# Slack
-flatpak install flathub com.slack.Slack -y
-
-# Postman
-flatpak install flathub com.getpostman.Postman -y
-
-# DBeaver Community
-flatpak install flathub io.dbeaver.DBeaverCommunity -y
-
-# Meld
-flatpak install flathub org.gnome.meld -y
-
-# Skype
-flatpak install flathub com.skype.Client -y
-
-# Telegram
-flatpak install flathub org.telegram.desktop -y
-
-# Zoom
-flatpak install flathub us.zoom.Zoom -y
-
-# Inkscape
-flatpak install flathub org.inkscape.Inkscape -y
-
-# Gimp
-flatpak install flathub org.gimp.GIMP -y
-
-# Bitwarden
-flatpak install flathub com.bitwarden.desktop -y
 
 # VSCode
 cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760867" -O vscode.rpm && sudo dnf localinstall vscode.rpm -y
+
+# Zsh (Oh My Zsh)
+sudo dnf -y install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+# # Flatpak Repo
+# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y
+
+# # Spotify
+# flatpak install flathub com.spotify.Client -y
+
+# # Slack
+# flatpak install flathub com.slack.Slack -y
+
+# # Postman
+# flatpak install flathub com.getpostman.Postman -y
+
+# # DBeaver Community
+# flatpak install flathub io.dbeaver.DBeaverCommunity -y
+
+# # Meld
+# flatpak install flathub org.gnome.meld -y
+
+# # Skype
+# flatpak install flathub com.skype.Client -y
+
+# # Telegram
+# flatpak install flathub org.telegram.desktop -y
+
+# # Zoom
+# flatpak install flathub us.zoom.Zoom -y
+
+# # Inkscape
+# flatpak install flathub org.inkscape.Inkscape -y
+
+# # Gimp
+# flatpak install flathub org.gimp.GIMP -y
+
+# # Bitwarden
+# flatpak install flathub com.bitwarden.desktop -y
 
 # # Nvidia (without Bumblebee) - Wayland (intel) | Xorg (nvidia)
 # sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-nvidia.repo
