@@ -30,6 +30,10 @@ meld htop iotop bash-completion screenfetch flameshot vim
 # Gnome
 sudo apt -y install moka-icon-theme
 
+# Gnome extensions
+# https://extensions.gnome.org/extension/615/appindicator-support/
+
+
 # Bluetooth
 sudo apt install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware blueman
 
