@@ -28,17 +28,22 @@ sudo apt -y install terminator arc arj cabextract lhasa p7zip p7zip-full p7zip-r
 meld htop iotop bash-completion screenfetch flameshot vim
 
 # Gnome
-sudo apt -y install gnome-shell-extension-caffeine gnome-shell-extension-dashtodock gnome-shell-extension-top-icons-plus
 sudo apt -y install moka-icon-theme
 
+# Bluetooth
+sudo apt install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware blueman
+
 # Google Chrome
-cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb && sudo apt -y install -f
+cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb
+sudo apt install -f
 
 # Vscode
-cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb && sudo dpkg -i vscode.deb && sudo apt -y install -f
+cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb && sudo dpkg -i vscode.deb
+sudo apt install -f
 
 # Zoom
-cd /tmp && wget "https://zoom.us/client/latest/zoom_amd64.deb" -O zoom.deb && sudo dpkg -i zoom.deb && sudo apt -y install -f
+cd /tmp && wget "https://zoom.us/client/latest/zoom_amd64.deb" -O zoom.deb && sudo dpkg -i zoom.deb
+sudo apt install -f
 
 # Spotify
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
