@@ -33,6 +33,9 @@ sudo apt -y install moka-icon-theme
 # Gnome extensions
 # https://extensions.gnome.org/extension/615/appindicator-support/
 
+# Gnome - Mudando de Fahrenheit para Celsius no Weather Dash Plugin
+gsettings set org.gnome.GWeather temperature-unit "'centigrade'"
+
 
 # Bluetooth
 sudo apt install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware blueman
