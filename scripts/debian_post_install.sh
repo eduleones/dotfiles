@@ -7,6 +7,12 @@
 # Update
 sudo apt -y update && sudo apt -y upgrade
 
+# Remove Gnome Games
+sudo apt purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno \
+gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row \
+gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex
+sudo apt autoremove
+
 # Base
 sudo apt -y install nano wget make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
