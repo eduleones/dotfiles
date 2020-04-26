@@ -15,7 +15,7 @@ sudo apt autoremove
 
 # Base
 sudo apt -y install nano wget make build-essential dkms linux-headers-$(uname -r) libssl-dev zlib1g-dev libbz2-dev \
-libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev mesa-utils \
 xz-utils tk-dev libffi-dev liblzma-dev python-openssl git intel-microcode
 
 # Ufw (Firewall)
@@ -85,3 +85,7 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 # Zsh (Oh My Zsh)
 sudo apt -y install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Nvidia
+sudo apt install nvidia-detect
+sudo apt install nvidia-driver
