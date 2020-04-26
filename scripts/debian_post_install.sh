@@ -14,9 +14,9 @@ gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex
 sudo apt autoremove
 
 # Base
-sudo apt -y install nano wget make build-essential libssl-dev zlib1g-dev libbz2-dev \
+sudo apt -y install nano wget make build-essential dkms linux-headers-$(uname -r) libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git intel-microcode
 
 # Ufw (Firewall)
 sudo apt -y install ufw && sudo ufw enable
