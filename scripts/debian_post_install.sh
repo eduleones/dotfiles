@@ -16,7 +16,7 @@ sudo apt autoremove
 # Base
 sudo apt -y install nano wget make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev python-openssl git intel-microcode
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
 
 # Ufw (Firewall)
 sudo apt -y install ufw && sudo ufw enable
@@ -27,7 +27,7 @@ sudo apt -y install gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreame
 gstreamer1.0-plugins-bad ffmpeg sox twolame vorbis-tools lame faad mencoder
 
 # Fonts
-sudo apt -y install fonts-powerline fonts-roboto fonts-ubuntu
+sudo apt -y install fonts-powerline fonts-roboto fonts-ubuntu msttcorefonts
 
 # Utils
 sudo apt -y install terminator arc arj cabextract lhasa p7zip p7zip-full p7zip-rar rar unrar unace unzip xz-utils zip \
@@ -43,8 +43,9 @@ sudo apt -y install moka-icon-theme
 gsettings set org.gnome.GWeather temperature-unit "'centigrade'"
 
 
-# Bluetooth
-sudo apt install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware blueman
+# Bluetooth and Sound
+sudo apt install pulseaudio pulseaudio-module-bluetooth bluez-firmware
+# sudo apt install blueman pavucontrol
 
 # Google Chrome
 cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb
