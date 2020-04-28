@@ -49,20 +49,6 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker ${USER} 
 
 
-echo -e ">>>> Install Pyenv <<<<"
-curl https://pyenv.run | bash
-echo '' >> ~/.bashrc
-echo "# Pyenv config" >> ~/.bashrc
-echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-
-
-echo -e ">>>> Install Oh My Zsh <<<<"
-sudo apt -y install zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
 echo -e ">>>> Install VSCode <<<<"
 cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb && sudo dpkg -i vscode.deb
 sudo apt install -f
@@ -76,6 +62,19 @@ sudo snap install redis-desktop-manager
 sudo snap install dbeaver-ce
 sudo snap install postman
 sudo snap install bitwarden
+
+echo -e ">>>> Install Pyenv <<<<"
+curl https://pyenv.run | bash
+echo '' >> ~/.bashrc
+echo "# Pyenv config" >> ~/.bashrc
+echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+
+echo -e ">>>> Install Oh My Zsh <<<<"
+sudo apt -y install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 echo -e ">>>> Finish <<<<"
