@@ -16,11 +16,6 @@ libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
 
 
-echo -e ">>>> Github configure <<<<"
-git config --global user.name "Eduardo Leones"
-git config --global user.email eduleones@gmail.com
-
-
 echo -e ">>>> Enable Firewall <<<<"
 sudo ufw enable
 
@@ -51,7 +46,7 @@ sudo usermod -aG docker ${USER}
 
 echo -e ">>>> Install VSCode <<<<"
 cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb && sudo dpkg -i vscode.deb
-sudo apt install -f
+sudo apt -y install -f
 
 
 echo -e ">>>> Install Snap Softwares <<<<"
