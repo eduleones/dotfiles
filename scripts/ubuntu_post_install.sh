@@ -36,12 +36,13 @@ sudo apt -y install meld htop iotop bash-completion screenfetch flameshot vim te
 echo -e ">>>> Config Gnome <<<<"
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
+gsettings set org.gnome.GWeather temperature-unit "'centigrade'"
 
 
 echo -e ">>>> Docker <<<<"
 sudo apt -y install docker.io docker-compose
 sudo systemctl enable --now docker
-sudo usermod -aG docker ${USER} 
+sudo usermod -aG docker ${USER}
 
 
 echo -e ">>>> Install VSCode <<<<"
@@ -49,14 +50,23 @@ cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb &
 sudo apt -y install -f
 
 
+echo -e ">>>> Install Google Chrome <<<<"
+cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb
+sudo apt install -f
+
+
 echo -e ">>>> Install Snap Softwares <<<<"
 sudo snap install spotify
 sudo snap install zoom-client
-sudo snap install slack --classic
 sudo snap install redis-desktop-manager
 sudo snap install dbeaver-ce
 sudo snap install postman
 sudo snap install bitwarden
+
+
+echo -e ">>>> Install Golang <<<<"
+sudo apt -y install golang
+
 
 echo -e ">>>> Install Pyenv <<<<"
 curl https://pyenv.run | bash
@@ -70,6 +80,3 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo -e ">>>> Install Oh My Zsh <<<<"
 sudo apt -y install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
-echo -e ">>>> Finish <<<<"
