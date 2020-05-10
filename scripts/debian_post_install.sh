@@ -9,10 +9,10 @@ echo -e ">>>> Software Update <<<<"
 sudo apt -y update && sudo apt -y upgrade
 
 echo -e ">>>> Remove Gnome Games <<<<"
-sudo apt purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno \
+sudo apt -y purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno \
 gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row \
 gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex
-sudo apt autoremove
+sudo apt -y autoremove
 
 echo -e ">>>> Install Essential <<<<"
 sudo apt -y install nano wget make build-essential dkms linux-headers-$(uname -r) libssl-dev zlib1g-dev libbz2-dev \
@@ -69,13 +69,13 @@ sudo dpkg -i zoom.deb && sudo apt -y install -f
 echo -e ">>>> Install Spotify <<<<"
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update && sudo apt -y install spotify-client
+sudo apt update -y && sudo apt -y install spotify-client && sudo apt -y install -f
 
 echo -e ">>>> Install Docker <<<<"
 sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-sudo apt update && sudo apt -y install docker-ce && sudo apt -y install docker-compose
+sudo apt update -y && sudo apt -y install docker-ce docker-compose && sudo apt -y install -f
 sudo systemctl enable docker
 sudo usermod -aG docker ${USER}
 
