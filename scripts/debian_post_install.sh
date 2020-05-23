@@ -5,95 +5,171 @@
 
 cd ~/
 
-echo -e ">>>> Software Update <<<<"
+
+echo "################################################################"
+echo "###################   Software Update     ######################"
+echo "################################################################"
 sudo apt -y update && sudo apt -y upgrade
 
-echo -e ">>>> Remove Gnome Games <<<<"
+
+echo "################################################################"
+echo "###################   Remove Gnome Games  ######################"
+echo "################################################################"
 sudo apt -y purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno \
 gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row \
 gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex
 sudo apt -y autoremove
 
-echo -e ">>>> Install Essential <<<<"
+
+echo "################################################################"
+echo "###################   Install Essentials  ######################"
+echo "################################################################"
 sudo apt -y install nano wget make build-essential dkms linux-headers-$(uname -r) libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev mesa-utils \
 xz-utils tk-dev libffi-dev liblzma-dev python-openssl git intel-microcode
 
-echo -e ">>>> Install Nvidia <<<<"
+
+echo "################################################################"
+echo "###################   Install Nvidia      ######################"
+echo "################################################################"
 sudo apt -y install nvidia-detect
 sudo apt -y install firmware-linux firmware-linux-nonfree 
 sudo apt -y install bumblebee-nvidia primus libgl1-nvidia-glx
 sudo adduser ${USER} bumblebee 
 
-echo -e ">>>> Enable Firewall <<<<"
+
+echo "################################################################"
+echo "###################   Enable Firewall     ######################"
+echo "################################################################"
 sudo apt -y install ufw && sudo ufw enable
 
-echo -e ">>>> Install Multimidia <<<<"
+
+echo "################################################################"
+echo "###################   Install Multimidia  ######################"
+echo "################################################################"
 sudo apt -y install vlc ffmpeg
 sudo apt -y install gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly \
 gstreamer1.0-plugins-bad ffmpeg sox twolame vorbis-tools lame faad mencoder
 
-echo -e ">>>> Install Fonts <<<<"
+
+echo "################################################################"
+echo "###################   Install Fonts       ######################"
+echo "################################################################"
 sudo apt -y install fonts-powerline fonts-roboto fonts-ubuntu msttcorefonts
 
-echo -e ">>>> Install Utils <<<<"
+
+echo "################################################################"
+echo "###################   Install Utilities   ######################"
+echo "################################################################"
 sudo apt -y install terminator arc arj cabextract lhasa p7zip p7zip-full p7zip-rar rar unrar unace unzip xz-utils zip \
 meld htop iotop bash-completion screenfetch flameshot vim
 
-echo -e ">>>> Gnome Themes and Configs <<<<"
-sudo apt -y install moka-icon-theme papirus-icon-theme
 
+
+echo "################################################################"
+echo "###################   Gnome Themes and Configs #################"
+echo "################################################################"
 # Gnome extensions
 # https://extensions.gnome.org/extension/615/appindicator-support/
-
-# Gnome - Mudando de Fahrenheit para Celsius no Weather Dash Plugin
+sudo apt -y install moka-icon-theme papirus-icon-theme
 gsettings set org.gnome.GWeather temperature-unit "'centigrade'"
 
 
 echo -e ">>>> Install Bluetooth and Sound <<<<"
-sudo apt install pulseaudio pulseaudio-module-bluetooth bluez-firmware
-# sudo apt install blueman pavucontrol
+echo "################################################################"
+echo "###################   Install Bluetooth Firmware ###############"
+echo "################################################################"
+# sudo apt install blueman pavucontrol pulseaudio pulseaudio-module-bluetooth
+sudo apt install  bluez-firmware
 
-echo -e ">>>> Install Google Chrome <<<<"
+
+echo "################################################################"
+echo "###################   Install Chrome      ######################"
+echo "################################################################"
 cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb
-sudo dpkg -i chrome.deb && sudo apt -y install -f
+sudo dpkg -i chrome.deb || true
+sudo apt -y install -f
 
-echo -e ">>>> Install VSCode <<<<"
+
+echo "################################################################"
+echo "###################   Install VSCode      ######################"
+echo "################################################################"
 cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb
-sudo dpkg -i vscode.deb && sudo apt -y install -f
+sudo dpkg -i vscode.deb || true
+sudo apt -y install -f
 
-echo -e ">>>> Install Zoom <<<<"
+
+echo "################################################################"
+echo "###################   Install Zoom        ######################"
+echo "################################################################"
 cd /tmp && wget "https://zoom.us/client/latest/zoom_amd64.deb" -O zoom.deb
-sudo dpkg -i zoom.deb && sudo apt -y install -f
+sudo dpkg -i zoom.deb || true
+sudo apt -y install -f
 
-echo -e ">>>> Install Spotify <<<<"
+
+echo "################################################################"
+echo "###################   Install Spotify     ######################"
+echo "################################################################"
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update -y && sudo apt -y install spotify-client && sudo apt -y install -f
+sudo apt update && sudo apt -y install spotify-client || true
+sudo apt -y install -f
 
-echo -e ">>>> Install Slack <<<<<"
-cd /tmp && wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb -O slack.deb
-sudo dpkg -i slack.deb && sudo apt -y install -f
 
-echo -e ">>>> Install Docker <<<<"
+echo "################################################################"
+echo "###################   Install Slack       ######################"
+echo "################################################################"
+cd /tmp && wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.3-amd64.deb -O slack.deb
+sudo dpkg -i slack.deb || true
+sudo apt -y install -f
+
+
+echo "################################################################"
+echo "###################   Install Docker      ######################"
+echo "################################################################"
 sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-sudo apt update -y && sudo apt -y install docker-ce docker-compose && sudo apt -y install -f
+sudo apt update -y && sudo apt -y install docker-ce docker-compose || true
+sudo apt -y install -f
 sudo systemctl enable docker
 sudo usermod -aG docker ${USER}
 
-echo -e ">>>> Install i3 <<<<"
+
+echo "################################################################"
+echo "###################   Install i3          ######################"
+echo "################################################################"
 sudo apt -y install i3 i3blocks i3lock feh
 
-echo -e ">>>> Install Pyenv <<<<"
+
+echo "################################################################"
+echo "###################   Install PyENV       ######################"
+echo "################################################################"
 curl https://pyenv.run | bash
-echo '# Pyenv config' >> ~/.bashrc
+echo '# PyENV ' >> ~/.bashrc
 echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
-echo -e ">>>> Install Zsh (Oh My Zsh) <<<<"
+
+echo "################################################################"
+echo "###################   Install nvm / node  ######################"
+echo "################################################################"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+
+echo "################################################################"
+echo "###################   Install golang      ######################"
+echo "################################################################"
+cd /tmp && wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.14.3.linux-amd64.tar.gz
+echo '# Golang ' >> ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+
+echo "################################################################"
+echo "###################   Install Zsh (Oh My Zsh)  #################"
+echo "################################################################"
 sudo apt -y install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
