@@ -49,7 +49,7 @@ sudo apt -y install meld htop iotop bash-completion screenfetch flameshot vim te
 echo "################################################################"
 echo "###################   Gnome Confs         ######################"
 echo "################################################################"
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+#gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.GWeather temperature-unit "'centigrade'"
 
@@ -65,15 +65,25 @@ sudo usermod -aG docker ${USER}
 echo "################################################################"
 echo "###################   Install VSCode      ######################"
 echo "################################################################"
-cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb && sudo dpkg -i vscode.deb
+cd /tmp && wget "https://go.microsoft.com/fwlink/?LinkID=760868" -O vscode.deb
+sudo dpkg -i vscode.deb || true
 sudo apt -y install -f
 
 
 echo "################################################################"
 echo "###################   Install Chrome      ######################"
 echo "################################################################"
-cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb && sudo dpkg -i chrome.deb
+cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb
+sudo dpkg -i chrome.deb || true
 sudo apt install -f
+
+
+echo "################################################################"
+echo "###################   Install Slack       ######################"
+echo "################################################################"
+cd /tmp && wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.3-amd64.deb -O slack.deb
+sudo dpkg -i slack.deb || true
+sudo apt -y install -f
 
 
 echo "################################################################"
