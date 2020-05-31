@@ -71,6 +71,14 @@ sudo apt -y install -f
 
 
 echo "################################################################"
+echo "###################   Install Teams       ######################"
+echo "################################################################"
+cd /tmp && wget "https://go.microsoft.com/fwlink/p/?linkid=2112886&culture=en-us&country=ww" -O teams.deb
+sudo dpkg -i teams.deb || true
+sudo apt -y install -f
+
+
+echo "################################################################"
 echo "###################   Install Chrome      ######################"
 echo "################################################################"
 cd /tmp && wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O chrome.deb
@@ -108,6 +116,7 @@ echo "###################   Install i3 WM       ######################"
 echo "################################################################"
 sudo apt -y install i3 i3blocks i3lock feh
 
+
 echo "################################################################"
 echo "###################   Install Pyenv       ######################"
 echo "################################################################"
@@ -117,6 +126,12 @@ echo "# Pyenv config" >> ~/.bashrc
 echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+
+echo "################################################################"
+echo "###################   Install nvm / node  ######################"
+echo "################################################################"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 
 echo "################################################################"
