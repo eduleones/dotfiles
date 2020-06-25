@@ -1,0 +1,73 @@
+{
+  "title": "Motospeed CK62 layer fix",
+  "maintainers": ["Eduardo Leones"],
+  "homepage": "https://github.com/saragiotto/customCK62",
+  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=",
+  "rules": [
+    {
+      "description": "Fix keyboard on OSX env",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "application",
+            "modifiers": {
+                "mandatory": ["left_alt"],
+                "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        }
+        ,{
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+                "mandatory": ["left_alt"],
+                "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        }
+        ,{
+          "type": "basic",
+          "from": {
+            "key_code": "right_alt",
+            "modifiers": {
+                "mandatory": ["left_alt"],
+                "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        }
+        ,{
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+                "mandatory": ["left_alt"],
+                "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
